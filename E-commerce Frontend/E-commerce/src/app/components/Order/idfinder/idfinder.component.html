@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="container col-md-6" style="position:relative; top:100px">
+    <h1 class="h1">ENTER YOU ID</h1>
+
+<div class="flexsearch">
+		<div class="flexsearch--wrapper">
+			<form class="flexsearch--form" [formGroup]="searchid">
+				<div class="flexsearch--input-wrapper">
+					<input class="flexsearch--input" formControlName="identification" [(ngModel)]="identification" type="number" placeholder="search">
+					<div *ngIf="searchid.controls.identification.errors && searchid.controls.identification.dirty">
+						<div *ngIf="searchid.controls.identification.errors?.identification" class="alert alert-danger">
+							Invalid, Identification cannot be less than 0
+						</div>
+					</div>
+				</div>
+				<input class="flexsearch--submit" [disabled]="!searchid.valid" [routerLink]="['final/', identification]" type="submit" value="&#10140;"/>
+			</form>
+		</div>
+</div>
+</div>
+<br>
+<img src="https://img.pikbest.com/58pic/35/44/12/95c58PICegm78BIca1b43_PIC2018.gif!bw700" width="25%"  height="30%" style="position:static; margin-top: 100px; float: left;" alt="">

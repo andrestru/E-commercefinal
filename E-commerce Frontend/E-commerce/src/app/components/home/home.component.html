@@ -1,0 +1,15 @@
+<app-header></app-header>
+<h1 class="title">E-COMMERCE</h1>
+<div class="container" >
+    <div *ngFor="let ls of List2">
+    <div class="card">
+        <img src="{{img}}"  alt="">
+        <h4>{{ls.name}}</h4>
+        <p>{{ls.description}}</p>
+        <h3>{{ls.base_Price | currency}}</h3>
+        <span>Quantity: <b>{{ls.inventory}}</b></span>
+        <button (click)="add(ls)" *ngIf="ls.inventory!=0" class="btn btn-success">Add to Cart</button>
+    </div>
+    <br>
+</div>
+</div>

@@ -1,0 +1,38 @@
+<app-header-user></app-header-user>
+
+<div class="container" style="position:relative; top:100px">
+  <h3>Products</h3>
+    <div class="card">
+      <div class="card-body d-flex">
+        <button style="position: absolute; right: 0;" (click)="addProduct()" class="btn btn-success ">Add Product</button>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+            <tr class="text-center">
+              <th>Name</th>
+              <th>Description</th>
+              <th>Base Price</th>
+              <th>Quantity</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of listado | paginate: {itemsPerPage: 5, currentPage: page}" class="text-center">
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.base_Price}}</td>
+                <td>{{item.inventory}}</td>
+                <td>
+                <button [routerLink]="['editproduct/', item.identificationNumber]" class="btn btn-warning">Edit</button>
+                <button (click)="delete(item)" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>
+    </div>
+</div>
+  
+

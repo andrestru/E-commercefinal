@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<div class="container" style="position: relative; top: 100px;">
+    <div class="card">
+        <div *ngFor="let lis of list" class="card-header">
+            <h3>Order Number: {{lis.number_order}}</h3>
+            <h5>Name: {{lis.name}}</h5>
+            <h5>Address: {{lis.address}}</h5>
+            <h5>Total: {{lis.total}}</h5>
+            <h5>Status: {{lis.orderstatus}}</h5>
+    </div>
+    </div>
+</div>

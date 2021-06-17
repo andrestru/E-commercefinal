@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container" style="position: relative; top: 100px;">
+    <div class="container">
+        <div class="card">
+          <div class="card-header">
+            <h3>One More Step</h3>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="formb">
+                <div class="form-group">
+                    <label for="">Full Name</label>
+                    <input type="text" formControlName="name" class="form-control">
+                    <div *ngIf="formb.controls.name.errors && formb.controls.name.dirty">
+                        <div *ngIf="formb.controls.name.errors?.required" class="alert alert-danger">
+                            Invalid, Name is required
+                        </div>
+                    </div>
+                    <label for="">Address</label>
+                    <input type="text" formControlName="address" class="form-control">
+                    <div *ngIf="formb.controls.address.errors && formb.controls.address.dirty">
+                        <div *ngIf="formb.controls.address.errors?.required" class="alert alert-danger">
+                            Invalid, Address is required
+                        </div>
+                    </div>
+                    <label for="">Identification</label>
+                    <input type="text" [readonly]="identification" formControlName="identification" class="form-control">
+                </div>
+                <h5 style="color: grey;">Total without Discount: {{resultado | currency}}</h5>
+                <h5 style="color: grey;">Discount: {{discounts | currency}}</h5>
+                <h3>Total: {{final | currency}}</h3>
+                    <button [disabled]="!formb.valid" style="position: absolute; right: 0; margin-top: 30px;" (click)="save()" class="btn btn-success">Pay</button>
+            </form>
+          </div>
+          
+        </div>  
+      </div>
+</div>

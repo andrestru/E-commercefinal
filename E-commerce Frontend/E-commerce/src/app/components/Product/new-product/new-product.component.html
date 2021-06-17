@@ -1,0 +1,100 @@
+<app-header-user></app-header-user>
+<div class="container col-md-6" style="position:relative; top:100px">
+    <div class="card">
+      <div class="card-header">
+          <h3>Add new Product</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="addForm">
+            <div class="form-group">
+                <label for="">Produc Id</label>
+                <input  formControlName="identificationNumber" type="number" class="form-control">
+                <div *ngIf="addForm.controls.identificationNumber.errors && addForm.controls.identificationNumber.dirty">
+                    <div *ngIf="addForm.controls.identificationNumber.errors?.required" class="alert alert-danger">
+                        Invalid, Identification Product required
+                    </div>
+                    <div *ngIf="addForm.controls.identificationNumber.errors?.identification" class="alert alert-danger">
+                        Invalid, Identification Product can't be less than 1
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Name</label>
+                <input  formControlName="name" class="form-control">
+                <div *ngIf="addForm.controls.name.errors && addForm.controls.name.dirty">
+                    <div *ngIf="addForm.controls.name.errors?.required" class="alert alert-danger">
+                        Invalid, Name required
+                    </div>
+                    <div *ngIf="addForm.controls.name.errors?.maxlength" class="alert alert-danger">
+                        Invalid, Name can't be > 100
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Description</label>
+                <input  formControlName="description" type="text" class="form-control">
+                <div *ngIf="addForm.controls.description.errors && addForm.controls.description.dirty">
+                    <div *ngIf="addForm.controls.description.errors?.required" class="alert alert-danger">
+                        Invalid, Description required
+                    </div>
+                    <div *ngIf="addForm.controls.description.errors?.maxlength" class="alert alert-danger">
+                        Invalid, Description can't be > 280
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Base Price</label>
+                <input  formControlName="base_Price" type="number" class="form-control">
+                <div *ngIf="addForm.controls.base_Price.errors && addForm.controls.base_Price.dirty">
+                    <div *ngIf="addForm.controls.base_Price.errors?.required" class="alert alert-danger">
+                        Invalid, Base Price required
+                    </div>
+                    <div *ngIf="addForm.controls.base_Price.errors?.pattern" class="alert alert-danger">
+                        Invalid, Base Price out of range
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Tax Rate</label>
+                <input  formControlName="tax_Rate" type="number" class="form-control">
+                <div *ngIf="addForm.controls.tax_Rate.errors && addForm.controls.tax_Rate.dirty">
+                    <div *ngIf="addForm.controls.tax_Rate.errors?.required" class="alert alert-danger">
+                        Invalid, Tax rate required
+                    </div>
+                    <div *ngIf="addForm.controls.tax_Rate.errors?.rate" class="alert alert-danger">
+                        Invalid, Tax rate exceeds parameters
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Produc Status</label>
+                <input  formControlName="productstatus" type="text" class="form-control">
+                <div *ngIf="addForm.controls.productstatus.errors && addForm.controls.productstatus.dirty">
+                    <div *ngIf="addForm.controls.productstatus.errors?.required" class="alert alert-danger">
+                        Invalid, Product Status required
+                    </div>
+                    <div *ngIf="addForm.controls.productstatus.errors?.pattern" class="alert alert-danger">
+                        Invalid, Product Status out of range
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Inventory Quantity</label>
+                <input formControlName="quantity" type="number" class="form-control">
+                <div *ngIf="addForm.controls.quantity.errors && addForm.controls.quantity.dirty">
+                    <div *ngIf="addForm.controls.quantity.errors?.required" class="alert alert-danger">
+                        Invalid, Quantity required
+                    </div>
+                    <div *ngIf="addForm.controls.quantity.errors?.pattern" class="alert alert-danger">
+                        Invalid, Quantity out of range
+                    </div>
+                </div>
+            </div>
+            <button (click)="newProduct()" [disabled]="!addForm.valid" class="btn btn-danger">Save</button>
+            <button (click)="back()" class="btn btn-success">Go back</button>
+        </form>
+        
+      </div>
+    </div>
+</div>
+

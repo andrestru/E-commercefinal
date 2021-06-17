@@ -1,0 +1,43 @@
+<app-header-user></app-header-user>
+<div class="container col-md-6" style="position:relative; top:100px">
+    <div class="card">
+      <div class="card-header">
+          <h3>Edit newProduct</h3>
+      </div>
+      <div *ngIf="load" class="card-body">
+        <form *ngFor="let product of products">  <!--product[0]['name']-->
+            <div class="form-group">
+                <label for="">Produc Id</label>
+                <input [(ngModel)]="product.identificationNumber" [readonly]="product.identificationNumber" name="productId" id="productId" type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Name</label>
+                <input [(ngModel)]="product.name" name="name" id="name" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Description</label>
+                <input [(ngModel)]="product.description" name="description" id="description" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Base Price</label>
+                <input [(ngModel)]="product.base_Price" name="base_price" id="base_Price" type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Tax Rate</label>
+                <input [(ngModel)]="product.tax_Rate" name="tax_rate" id="tax_rate" type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Produc Status</label>
+                <input [(ngModel)]="product.productstatus" name="status" id="status" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Inventory Quantity</label>
+                <input [(ngModel)]="product.inventory" name="quantity" id="quantity" type="number" class="form-control">
+            </div>
+            <button (click)="edit(product)" class="btn btn-danger">Update</button>
+            <button (click)="back()" class="btn btn-success">Go back</button>
+        </form>
+      </div>
+    </div>
+</div>
+

@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div>
+<section class="cart_section">
+    <h2>CART</h2>
+     <div class="container">
+        <table *ngIf="items[0]">
+        <tr>
+            <th>NAME</th>
+            <th>DESCRIPTION</th>
+            <th>PRICE</th>
+            <th>DELETE</th>
+        </tr>
+        <tr *ngFor="let sho of items">
+            <td>{{sho.name}}</td>
+            <td>{{sho.description}}</td>
+            <td>{{sho.base_Price}}</td>
+            <td><button (click)="delete(sho)" class="btn btn-danger">Delete</button></td>
+        </tr>
+        </table>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 style="text-align: right">Total -  {{resultado | currency}}</h3>
+            </div>
+        </div>  
+        <div class="card" style="border: none;">
+            <div class="d-flex">
+                <button (click)="pay()" *ngIf="items[0]" style="position: absolute; right: 0;" type="button" class="btn btn-outline-success" ><i class="fa fa-trash"></i>Pay All Items</button>
+                <button style="position: relative;" (click)="remove()" type="button" class="btn btn-outline-danger" ><i class="fa fa-trash"></i>Remove All Item</button>
+            </div>
+        </div>
+    </div>  
+</section>
+</div>
